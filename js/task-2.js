@@ -34,9 +34,8 @@ function createImageMarkup(image) {
     `;
 }
 
-function createGalery(images) {
-  const createGaleryMarkup = images.map(createImageMarkup).join("");
-  galleryContainer.insertAdjacentHTML("beforeend", createGaleryMarkup);
+function createGallery(images) {
+  const createGalleryMarkup = images.map(createImageMarkup).join("");
+  galleryContainer.insertAdjacentHTML("beforeend", createGalleryMarkup);
 }
-createGalery(images);
-
+createGallery(images);

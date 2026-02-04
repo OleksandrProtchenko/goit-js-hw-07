@@ -12,15 +12,25 @@ function onFormSubmit(event) {
   const formData = new FormData(form);
   const data = {};
 
-  if (email === "" || password === "") {
-    alert("All form fields must be filled in");
+  if (!validateInputFields(email, password)) {
     return;
   }
 
   formData.forEach((value, name) => {
-    data[name] = value;
+    data[name] = value.trim();
   });
 
   console.log(data);
   form.reset();
+}
+
+function validateInputFields(email, password) {
+  if (email === "" || password === "") {
+    alert("All form fields must be filled in");
+    return false;
+  } else if (email.includes(" ") || password.includes(" ")) {
+    alert("Email and password must not contain spaces");
+    return false;
+  }
+  return true;
 }
